@@ -1,0 +1,63 @@
+img {
+  /*Image DON'T LEAVE its container*/
+  max-width: 100%;
+  /*No white spaces*/
+  display: block;
+}
+
+/*We need to create columns, using CSS grid*/
+.masonry-layout {
+  /*CSS variable, default values*/
+  --columns: 1;
+  --gap: 2rem;
+  /*SAAS variable, maxNumber of columns created*/
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[var];
+      grid-template-columns: repeat(var(--columns), 1fr);
+  grid-gap: var(--gap);
+  /*Generating columns using SAAS variable: @for..*/
+  /*Equivalent to:
+        &.columns-1 {
+            --columns: 1;
+        }
+        &.columns-2 {
+            --columns: 2;
+        }
+    */
+}
+
+.masonry-layout:hover img {
+  opacity: 0.1;
+  -webkit-transition: .8s opacity;
+  transition: .8s opacity;
+}
+
+.masonry-layout:hover img:hover {
+  opacity: 1;
+}
+
+.masonry-layout .masonry-item {
+  margin-bottom: var(--gap);
+}
+
+.masonry-layout.columns-1 {
+  --columns: 1;
+  background-color: #131212;
+}
+
+.masonry-layout.columns-2 {
+  --columns: 2;
+  background-color: #131212;
+}
+
+.masonry-layout.columns-3 {
+  --columns: 3;
+  background-color: #131212;
+}
+
+.masonry-layout.columns-4 {
+  --columns: 4;
+  background-color: #131212;
+}
+/*# sourceMappingURL=maincss.css.map */
